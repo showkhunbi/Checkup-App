@@ -26,7 +26,7 @@ const checkup = () => {
 
         var mailOptions = {
             from: 'johnson@openresume.ng',
-            to: 'maximusjshokes@gmail.com',
+            to: secrets.email2,
             subject: `Happy ${today}, Checking up on you.`,
             text: `
             Hello Victoria, Good morning and Happy ${today},
@@ -38,12 +38,13 @@ const checkup = () => {
         };
 
         transporter.sendMail(mailOptions, function (error, info) { });
-        mailOptions.to = "maximusjshokes@gmail.com"
+        mailOptions.to = secrets.email1
         transporter.sendMail(mailOptions, function (error, info) { });
 
     });
 
 }
+
 setInterval(() => {
     hour = new Date().getHours() + 1
     if (hour == 7) {
